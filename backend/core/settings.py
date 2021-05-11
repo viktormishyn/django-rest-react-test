@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blog_api',
     'rest_framework',
     'corsheaders',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -149,4 +150,4 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # custom user model
-AUTH_USER_MODE = "users.NewUser"
+AUTH_USER_MODEL = "users.NewUser"
