@@ -26,6 +26,15 @@ class PostList(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.postobjects.all()
 
+    def get_object(self, queryset=None, **kwargs):
+        # use slug to define individual item instead of id
+        item = self.kwargs.get('pk')
+        return generics.get_object_or_404(Post, slug=item)
+
+    # Define Custom Queryset
+    def get_queryset(self):
+        return Post.objects.all()
+
 # ================================== ViewSet =====================================
 
 
